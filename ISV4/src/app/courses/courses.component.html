@@ -1,0 +1,18 @@
+<h1 class="text-info">{{ discount | number: "3.1-2" }}</h1>
+<p>Hello {{ getFullName() | custom }} to Angular</p>
+<a href="https://angular.io">For more info</a>
+
+<p [style.backgroundColor]="isActive ? 'blue' : 'red'">List of courses:</p>
+<p>{{ getCourses() }}</p>
+
+<img [src]="imageUrl" width="500px" height="350px" alt="Nature" />
+<br />
+
+<p>nesto</p>
+<button
+  class="btn btn-primary"
+  [class.active]="isActive ? true : false"
+  (click)="onSave($event)"
+>
+  Click me
+</button>
