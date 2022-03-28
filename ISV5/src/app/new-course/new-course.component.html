@@ -1,0 +1,5 @@
+<div>
+  <label [style.color]="checked ? 'red' : 'blue'" for="courseId">Id</label
+  ><input type="text" #courseId (keyup.enter)="onCheck(courseId.value)" />
+</div>
+<div><label for="courseName">Name</label><input #courseName type="text" /></div>
