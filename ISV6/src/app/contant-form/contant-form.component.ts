@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CoursesService } from '../courses.service';
 
 @Component({
   selector: 'contact-form',
@@ -6,8 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./contant-form.component.css'],
 })
 export class ContantFormComponent {
-  constructor() {}
+  courses: any[] = [];
+  constructor(private coursesService: CoursesService) {
+    this.courses = coursesService.getAll();
+  }
   write(obj: any) {
     console.log(obj);
+  }
+
+  submit(form: any) {
+    console.log(form);
   }
 }
