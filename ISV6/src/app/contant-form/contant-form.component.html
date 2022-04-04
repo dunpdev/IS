@@ -1,0 +1,41 @@
+<form>
+  <div class="form-group">
+    <label for="firstName">Licno ime</label
+    ><input
+      type="text"
+      ngModel
+      required
+      minlength="3"
+      #firstName="ngModel"
+      (change)="write(firstName)"
+      name="firstName"
+      id="firstName"
+      class="form-control"
+    />
+  </div>
+  <div *ngIf="firstName.touched && firstName.invalid">
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.errors && firstName.errors.required"
+    >
+      *Ovo polje je obavezno
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.errors && firstName.errors.minlength"
+    >
+      *Ime mora sadrzati najmanje 3 karaktera
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="message">Poruka</label
+    ><textarea
+      name="message"
+      id="message"
+      cols="30"
+      rows="10"
+      class="form-control"
+    ></textarea>
+  </div>
+  <button class="btn btn-primary">Posalji</button>
+</form>

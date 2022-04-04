@@ -10,6 +10,7 @@ import { CustomPipe } from './custom.pipe';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { CustomDirective } from './custom.directive';
 import { FormsModule } from '@angular/forms';
+import { ContantFormComponent } from './contant-form/contant-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     CustomPipe,
     CourseDetailsComponent,
     CustomDirective,
+    ContantFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [CoursesService],
