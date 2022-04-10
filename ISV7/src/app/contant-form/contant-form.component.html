@@ -1,0 +1,86 @@
+<p>{{ f.value | json }}</p>
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <div class="form-group">
+    <label for="firstName">Licno ime</label
+    ><input
+      type="text"
+      ngModel
+      required
+      minlength="3"
+      #firstName="ngModel"
+      (change)="write(firstName)"
+      name="firstName"
+      id="firstName"
+      class="form-control"
+    />
+  </div>
+  <div *ngIf="firstName.touched && firstName.invalid">
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.errors && firstName.errors.required"
+    >
+      *Ovo polje je obavezno
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.errors && firstName.errors.minlength"
+    >
+      *Ime mora sadrzati najmanje 3 karaktera
+    </div>
+  </div>
+  <!-- Poruka mora da sadrzi 50 do 300 karaktera i obavezno je polje -->
+  <div class="form-group">
+    <label for="message">Poruka</label
+    ><textarea
+      name="message"
+      ngModel
+      name="message"
+      #message="ngModel"
+      required
+      minlength="20"
+      maxlength="300"
+      id="message"
+      cols="30"
+      rows="10"
+      class="form-control"
+    ></textarea>
+  </div>
+  <div *ngIf="message.touched && message.invalid">
+    <div
+      class="alert alert-danger"
+      *ngIf="message.errors && message.errors.required"
+    >
+      *Poruka je obavezna
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="message.errors && message.errors.minlength"
+    >
+      *Poruka mora imati najmanje
+      {{ message.errors.minlength.requiredLength }} karaktera, a trenutno ima
+      {{ message.errors.minlength.actualLength }}
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="message.errors && message.errors.maxlength"
+    >
+      *Poruka mora imati najvise 300 karaktera
+    </div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ngModel name="instantMessage" />
+      Je li poruka instant?
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="course">Kurs kome pripada pitanja</label
+    ><select ngModel name="course" id="course">
+      <option value="">Izaberite kurs</option>
+      <option *ngFor="let course of courses" [ngValue]="course">
+        {{ course.title }}
+      </option>
+    </select>
+  </div>
+  <button class="btn btn-primary" [disabled]="f.invalid">Posalji</button>
+</form>
