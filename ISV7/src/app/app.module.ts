@@ -9,8 +9,9 @@ import { NewCourseComponent } from './new-course/new-course.component';
 import { CustomPipe } from './custom.pipe';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { CustomDirective } from './custom.directive';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContantFormComponent } from './contant-form/contant-form.component';
+import { SingUpComponent } from './sing-up/sing-up.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { ContantFormComponent } from './contant-form/contant-form.component';
     CourseDetailsComponent,
     CustomDirective,
     ContantFormComponent,
+    SingUpComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [CoursesService],
   bootstrap: [AppComponent],
 })
