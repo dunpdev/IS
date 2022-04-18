@@ -1,0 +1,49 @@
+<h2>Lista predavaca</h2>
+
+<ul>
+  <li *ngFor="let author of listAuthors">
+    {{ author.id + " " + author.name }}
+    <input
+      type="text"
+      placeholder="Unesite novo ime"
+      [(ngModel)]="updateAuthor.name"
+      name="updateauthorname"
+    />
+    <button class="btn btn-info" (click)="UpdateAuthor(author.id)">
+      Izmeni predavaca
+    </button>
+    <button class="btn btn-danger" (click)="RemoveAuthor(author.id)">
+      Brisi predavaca
+    </button>
+  </li>
+</ul>
+
+<div class="form-group">
+  <label for="id">Id</label
+  ><input
+    id="id"
+    name="authorId"
+    [(ngModel)]="authorId"
+    type="text"
+    class="form-control"
+  />
+</div>
+<button class="btn btn-primary" (click)="GetAuthor()">Prikazi predavaca</button>
+<p>{{ author | json }}</p>
+<div *ngIf="poruka" class="alert alert-danger">
+  Predavac sa trazenim idjem nije pronadjen
+</div>
+
+<form>
+  <div class="form-group">
+    <label for="name">Ime</label
+    ><input
+      id="name"
+      name="name"
+      [(ngModel)]="createAuthor.name"
+      type="text"
+      class="form-control"
+    />
+  </div>
+  <button class="btn btn-primary" (click)="AddAuthor()">Dodaj predavaca</button>
+</form>

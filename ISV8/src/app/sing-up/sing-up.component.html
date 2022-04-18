@@ -1,0 +1,64 @@
+<p>sing-up works!</p>
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <label for="username">Korisnicko ime</label
+    ><input
+      type="text"
+      formControlName="username"
+      id="username"
+      class="form-control"
+    />
+  </div>
+  <div *ngIf="Username.pending" class="spinner-border" role="status">
+          <span class="sr-only"></span>    
+  </div>
+
+  <div *ngIf="Username.touched && Username.invalid">
+    <div *ngIf="Username.errors">
+      <div class="alert alert-danger" *ngIf="Username.errors.required">
+        Korisnicko ime je obavezno polje
+      </div>
+      <div class="alert alert-danger" *ngIf="Username.errors.minlength">
+        Korisnicko ime mora sadrzati najmanje 5 karaktera
+      </div>
+      <div class="alert alert-danger" *ngIf="Username.errors.nemogurazmaci">
+        Korisnicko ime ne sme sadrzati razmake
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="Username.errors.zauzetostkorisnickogimena"
+      >
+        Korisnicko ime je zauzeto
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Lozinka</label
+    ><input
+      type="password"
+      formControlName="password"
+      id="password"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label for="subject">Predmeti interesovanja</label
+    ><input
+      type="text"
+      id="subject"
+      #subject
+      (keyup.enter)="AddSubject(subject)"
+      class="form-control"
+    />
+  </div>
+  <ul *ngIf="Subjects && Subjects.controls">
+    <li
+      *ngFor="let subject of Subjects.controls"
+      (click)="RemoveSubject(subject)"
+    >
+      {{ subject.value }}
+    </li>
+  </ul>
+  <button class="btn btn-primary">Loguj se</button>
+</form>
