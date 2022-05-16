@@ -7,8 +7,8 @@ import { Author, SaveAuthor } from './authors/author';
   providedIn: 'root',
 })
 export class AuthorsService {
-  // url = 'http://localhost:28879/api/authors';
-  url = 'https://sidunp-001-site1.ctempurl.com/api/authors';
+  url = 'http://localhost:28879/api/authors';
+  // url = 'https://sidunp-001-site1.ctempurl.com/api/authors';
   constructor(private http: HttpClient) {}
 
   // GetAll / Return all records ()
