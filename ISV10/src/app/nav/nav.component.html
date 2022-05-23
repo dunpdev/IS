@@ -1,0 +1,12 @@
+<ul *ngIf="isLoggedIn()" class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/authors']" routerLinkActive="active"
+      >Authors</a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/courses']" routerLinkActive="active"
+      >Courses</a
+    >
+  </li>
+</ul>

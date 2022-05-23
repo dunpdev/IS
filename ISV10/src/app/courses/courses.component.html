@@ -1,0 +1,30 @@
+<p>{{ courses | json }}</p>
+
+<h1>Lista kurseva</h1>
+
+<div *ngIf="courses.length > 0">
+  <div
+    *ngFor="let course of courses; even as isEven"
+    style="border: 1px solid black"
+  >
+    <p [ngClass]="{ 'text-danger': isEven === true }">Niza klasa kursa</p>
+    <p>id : {{ course.id }}</p>
+    <p>naziv : {{ course.title }}</p>
+    <p>zanimljiv : {{ course.isFavorite }}</p>
+  </div>
+</div>
+
+<ul>
+  <li *ngFor="let item of courses">{{ item.title }}</li>
+</ul>
+
+<span *ngIf="courses.length === 0">Nema kurseva</span>
+
+<p [hidden]="courses.length > 0">Ovde su trebali da budu kursevi</p>
+
+<button (click)="addCourse()">Dodaj novi kurs</button>
+<br />
+<br />
+<input malaSlova [(ngModel)]="tekst" name="tekst" />
+
+<p>Svojstvo tekst ima vrednost: {{ tekst }}</p>

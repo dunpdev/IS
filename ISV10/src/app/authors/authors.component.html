@@ -1,0 +1,25 @@
+<h2>Lista predavaca</h2>
+<ul>
+  <li *ngFor="let author of listAuthors">
+    {{ author.id + " " + author.name }}
+    <a class="btn btn-info" [routerLink]="['/authors', author.id]">
+      Detalji o predavacu
+    </a>
+    <button class="btn btn-info" (click)="openAuthors()">
+      Lista sa paginacjom
+    </button>
+  </li>
+</ul>
+<form>
+  <div class="form-group">
+    <label for="name">Ime</label
+    ><input
+      id="name"
+      name="name"
+      [(ngModel)]="createAuthor.name"
+      type="text"
+      class="form-control"
+    />
+  </div>
+  <button class="btn btn-primary" (click)="AddAuthor()">Dodaj predavaca</button>
+</form>
